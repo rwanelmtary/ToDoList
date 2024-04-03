@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA922C2B2BBD46F800F337E6 /* InProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922C2A2BBD46F800F337E6 /* InProgressViewController.m */; };
+		DA922C2E2BBD6A8600F337E6 /* DoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922C2D2BBD6A8600F337E6 /* DoneViewController.m */; };
 		DAAF62E02BBBF3CF005C87A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF62DF2BBBF3CF005C87A8 /* AppDelegate.m */; };
 		DAAF62E32BBBF3CF005C87A8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF62E22BBBF3CF005C87A8 /* SceneDelegate.m */; };
 		DAAF62E62BBBF3CF005C87A8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF62E52BBBF3CF005C87A8 /* ViewController.m */; };
@@ -17,6 +19,9 @@
 		DAAF62FB2BBBF3D8005C87A8 /* ToDoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF62FA2BBBF3D8005C87A8 /* ToDoListTests.m */; };
 		DAAF63052BBBF3D8005C87A8 /* ToDoListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF63042BBBF3D8005C87A8 /* ToDoListUITests.m */; };
 		DAAF63072BBBF3D8005C87A8 /* ToDoListUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF63062BBBF3D8005C87A8 /* ToDoListUITestsLaunchTests.m */; };
+		DAAF63152BBC0862005C87A8 /* AddingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF63142BBC0862005C87A8 /* AddingViewController.m */; };
+		DAAF63182BBC10AA005C87A8 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF63172BBC10AA005C87A8 /* Model.m */; };
+		DAAF631C2BBC2471005C87A8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF631B2BBC2471005C87A8 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA922C292BBD46F800F337E6 /* InProgressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InProgressViewController.h; sourceTree = "<group>"; };
+		DA922C2A2BBD46F800F337E6 /* InProgressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InProgressViewController.m; sourceTree = "<group>"; };
+		DA922C2C2BBD6A8600F337E6 /* DoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoneViewController.h; sourceTree = "<group>"; };
+		DA922C2D2BBD6A8600F337E6 /* DoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoneViewController.m; sourceTree = "<group>"; };
 		DAAF62DB2BBBF3CF005C87A8 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAF62DE2BBBF3CF005C87A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DAAF62DF2BBBF3CF005C87A8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,6 +63,13 @@
 		DAAF63002BBBF3D8005C87A8 /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAF63042BBBF3D8005C87A8 /* ToDoListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoListUITests.m; sourceTree = "<group>"; };
 		DAAF63062BBBF3D8005C87A8 /* ToDoListUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoListUITestsLaunchTests.m; sourceTree = "<group>"; };
+		DAAF63132BBC0862005C87A8 /* AddingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddingViewController.h; sourceTree = "<group>"; };
+		DAAF63142BBC0862005C87A8 /* AddingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddingViewController.m; sourceTree = "<group>"; };
+		DAAF63162BBC10AA005C87A8 /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		DAAF63172BBC10AA005C87A8 /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		DAAF63192BBC1C77005C87A8 /* MyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyProtocol.h; sourceTree = "<group>"; };
+		DAAF631A2BBC2471005C87A8 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		DAAF631B2BBC2471005C87A8 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +127,21 @@
 				DAAF62E42BBBF3CF005C87A8 /* ViewController.h */,
 				DAAF62E52BBBF3CF005C87A8 /* ViewController.m */,
 				DAAF62E72BBBF3CF005C87A8 /* Main.storyboard */,
+				DA922C2C2BBD6A8600F337E6 /* DoneViewController.h */,
+				DA922C2D2BBD6A8600F337E6 /* DoneViewController.m */,
+				DA922C292BBD46F800F337E6 /* InProgressViewController.h */,
+				DA922C2A2BBD46F800F337E6 /* InProgressViewController.m */,
 				DAAF62EA2BBBF3D7005C87A8 /* Assets.xcassets */,
 				DAAF62EC2BBBF3D7005C87A8 /* LaunchScreen.storyboard */,
 				DAAF62EF2BBBF3D7005C87A8 /* Info.plist */,
 				DAAF62F02BBBF3D7005C87A8 /* main.m */,
+				DAAF63132BBC0862005C87A8 /* AddingViewController.h */,
+				DAAF63142BBC0862005C87A8 /* AddingViewController.m */,
+				DAAF63162BBC10AA005C87A8 /* Model.h */,
+				DAAF63172BBC10AA005C87A8 /* Model.m */,
+				DAAF63192BBC1C77005C87A8 /* MyProtocol.h */,
+				DAAF631A2BBC2471005C87A8 /* DetailsViewController.h */,
+				DAAF631B2BBC2471005C87A8 /* DetailsViewController.m */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -266,9 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA922C2E2BBD6A8600F337E6 /* DoneViewController.m in Sources */,
+				DA922C2B2BBD46F800F337E6 /* InProgressViewController.m in Sources */,
 				DAAF62E62BBBF3CF005C87A8 /* ViewController.m in Sources */,
 				DAAF62E02BBBF3CF005C87A8 /* AppDelegate.m in Sources */,
 				DAAF62F12BBBF3D7005C87A8 /* main.m in Sources */,
+				DAAF63182BBC10AA005C87A8 /* Model.m in Sources */,
+				DAAF631C2BBC2471005C87A8 /* DetailsViewController.m in Sources */,
+				DAAF63152BBC0862005C87A8 /* AddingViewController.m in Sources */,
 				DAAF62E32BBBF3CF005C87A8 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +481,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,6 +508,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

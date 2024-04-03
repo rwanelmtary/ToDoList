@@ -1,28 +1,27 @@
 //
-//  ViewController.m
+//  DoneViewController.m
 //  ToDoList
 //
-//  Created by rwan elmtary on 02/04/2024.
+//  Created by rwan elmtary on 03/04/2024.
 //
 
-#import "ViewController.h"
-#import "Model.h"
-#import "AddingViewController.h"
+#import "DoneViewController.h"
 #import "DetailsViewController.h"
+#import "Model.h"
+#import "ViewController.h"
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *myTable;
+@interface DoneViewController ()
 @property NSMutableArray *filterd;
 @property  NSInteger selectedSegmentIndex;
-@property (weak, nonatomic) IBOutlet UISearchBar *search;
 
+@property (weak, nonatomic) IBOutlet UITableView *doneTable;
 @end
 
-@implementation ViewController
+@implementation DoneViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSArray *savedTasks = [[NSUserDefaults standardUserDefaults] objectForKey:@"tasks"];
+    NSArray *savedTasks = [[NSUserDefaults standardUserDefaults] objectForKey:@"done"];
         _data = [NSMutableArray array];
         for (NSDictionary *taskDict in savedTasks) {
             Model *model = [[Model alloc] init];
@@ -36,18 +35,18 @@
             self.selectedSegmentIndex = UISegmentedControlNoSegment;
         }
         
-    self.myTable.delegate = self;
-       self.myTable.dataSource = self;
+    self.doneTable.delegate = self;
+       self.doneTable.dataSource = self;
    // _data = [NSMutableArray new];
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _filterd.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myDone" forIndexPath:indexPath];
     //Model *model = _data[indexPath.row];
     Model *model = _filterd[indexPath.row];
 
@@ -57,23 +56,14 @@
 
     return cell;
 }
-
-- (IBAction)addTask:(id)sender {
-    AddingViewController *adding  = [self.storyboard instantiateViewControllerWithIdentifier:@"AddingViewController"];
-    [self presentViewController:adding animated:YES completion:nil];
-    adding.p = self;
-    
-}
 - (void)reload:(Model *)m{
     [_data addObject:m];
-  
     [self updateFilteredData];
-    [self.myTable reloadData];
+    [self.doneTable reloadData];
+
 }
 -(void)updateFilteredData {
-    if (self.selectedSegmentIndex == 3) {
-        self.filterd = [NSMutableArray arrayWithArray:_data]; // Show all tasks
-    } else if (self.selectedSegmentIndex != UISegmentedControlNoSegment) {
+    if (self.selectedSegmentIndex != UISegmentedControlNoSegment) {
         self.filterd = [NSMutableArray array];
         for (Model *task in _data) {
             if (task.pir == self.selectedSegmentIndex) {
@@ -84,9 +74,6 @@
         self.filterd = [NSMutableArray arrayWithArray:_data];
     }
 }
-
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailsViewController *details = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
     [details setModelObject:[_data objectAtIndex:indexPath.row]];
@@ -94,25 +81,8 @@
 
 
 }
-- (IBAction)filterPirority:(id)sender {
-    self.selectedSegmentIndex = [sender selectedSegmentIndex];
-    [self updateFilteredData];
-       [self.myTable reloadData];
-}
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if (searchText.length == 0) {
-        [self updateFilteredData]; // Reload all tasks
-    } else {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", searchText];
-        NSArray *filteredTasks = [_data filteredArrayUsingPredicate:predicate];
-        
-        self.filterd = [NSMutableArray arrayWithArray:filteredTasks];
-        [self.myTable reloadData]; // Reload the table view with filtered tasks
-    }
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    [_myTable reloadData];
+- (void)viewWillAppear:(BOOL)animated{
+    [_doneTable reloadData];
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -141,20 +111,37 @@
 - (void)updateTasksInUserDefaults {
     NSMutableArray *tasksArray = [NSMutableArray array];
     for (Model *task in self.data) {
-        NSDictionary *taskDict = @{
-            @"name": task.name,
-            @"desc": task.desc,
-            @"time": task.time,
-            @"pir": @(task.pir)
-        };
-        [tasksArray addObject:taskDict];
+        // Check if any of the values are nil
+        if (task.name && task.desc && task.time) {
+            NSDictionary *taskDict = @{
+                @"name": task.name,
+                @"desc": task.desc,
+                @"time": task.time,
+                @"pir": @(task.pir)
+            };
+            [tasksArray addObject:taskDict];
+        }
     }
-    [[NSUserDefaults standardUserDefaults] setObject:tasksArray forKey:@"tasks"];
+    // Now that we have constructed the tasksArray, store it in UserDefaults
+    [[NSUserDefaults standardUserDefaults] setObject:tasksArray forKey:@"progress"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+- (IBAction)filter:(UISegmentedControl *)sender {
+    self.selectedSegmentIndex = sender.selectedSegmentIndex;
+    [self updateFilteredData];
+    [self.doneTable reloadData];
 }
 
 
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
-		

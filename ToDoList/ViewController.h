@@ -6,8 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Model.h"
+#import "MyProtocol.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,MyProtocol ,UISearchBarDelegate>
+@property NSMutableArray <Model*> *data;
 
 
 @end
